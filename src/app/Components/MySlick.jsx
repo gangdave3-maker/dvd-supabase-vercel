@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 
 const CustomArrow = ({ className, style, onClick, isNext }) => {
+
   return (
     <div
       className={className}
@@ -56,12 +57,14 @@ function MySlick() {
     prevArrow:<CustomArrow isNext={false}/>
   };
 
+  const BUCKET_URL = "https://jhcposnstqhynbmubhyn.supabase.co/storage/v1/object/public/images";
+
   return (
     <div>
       <Slider {...settings}>
             <div className="flex! justify-center items-center">
               <Image
-                src={"/Badman Dawn.png"}
+                src={encodeURI(`${BUCKET_URL}/Badman Dawn.png`)}
                 alt="Mockup 1"
                 width={360}
                 height={540}
@@ -72,7 +75,7 @@ function MySlick() {
             </div>
             <div className="flex! justify-center items-center">
               <Image
-                src={"/Attraction Newton.png"}
+                src={encodeURI(`${BUCKET_URL}/Attraction Newton.png`)}
                 alt="Mockup 2"
                 width={360}
                 height={540}
@@ -83,7 +86,7 @@ function MySlick() {
             </div>
             <div className="flex! justify-center items-center">
               <Image
-                src={"/Baby Hall.png"}
+                src={encodeURI(`${BUCKET_URL}/Baby Hall.png`)}
                 alt="Mockup 3"
                 width={360}
                 height={540}
@@ -94,7 +97,7 @@ function MySlick() {
             </div>
             <div className="flex! justify-center items-center">
               <Image
-                src={"/Bang Kwai.png"}
+                src={encodeURI(`${BUCKET_URL}/Bang Kwai.png`)}
                 alt="Mockup 4"
                 width={360}
                 height={540}
@@ -105,7 +108,7 @@ function MySlick() {
             </div>
             <div className="flex! justify-center items-center">
               <Image
-                src={"/Beach Heartbreakers.png"}
+                src={encodeURI(`${BUCKET_URL}/Beach Heartbreakers.png`)}
                 alt="Mockup 5"
                 width={360}
                 height={540}
@@ -116,7 +119,7 @@ function MySlick() {
             </div>
             <div className="flex! justify-center items-center">
               <Image
-                src={"/Bird Independence.png"}
+                src={encodeURI(`${BUCKET_URL}/Bird Independence.png`)}
                 alt="Mockup 6"
                 width={360}
                 height={540}
@@ -127,7 +130,7 @@ function MySlick() {
             </div>
             <div className="flex! justify-center items-center">
               <Image
-                src={"/Bonnie Holocaust.png"}
+                src={encodeURI(`${BUCKET_URL}/Bonnie Holocaust.png`)}
                 alt="Mockup 6"
                 width={360}
                 height={540}
@@ -138,7 +141,7 @@ function MySlick() {
             </div>
             <div className="flex! justify-center items-center">
               <Image
-                src={"/Bride Intrigue.png"}
+                src={encodeURI(`${BUCKET_URL}/Bride Intrigue.png`)}
                 alt="Mockup 6"
                 width={360}
                 height={540}
@@ -149,7 +152,7 @@ function MySlick() {
             </div>
             <div className="flex! justify-center items-center">
               <Image
-                src={"/Academy Dinosaur.png"}
+                src={encodeURI(`${BUCKET_URL}/Academy Dinosaur.png`)}
                 alt="Mockup 6"
                 width={360}
                 height={540}
