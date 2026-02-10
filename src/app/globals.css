@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+}
+
+/* Base styles for the welcome class (no background) */
+.welcome {
+  min-height: 100vh;
+}
+/* Only apply the background if BOTH conditions are met */
+@media (min-width: 1300px) and (min-height: 655px) {
+  .welcome {
+    background-image: url("https://jhcposnstqhynbmubhyn.supabase.co/storage/v1/object/public/images/Homepage/Homepage.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
+
+.lay {
+  background-image: url("https://jhcposnstqhynbmubhyn.supabase.co/storage/v1/object/public/images/SideBanner/SideBanner.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /*Code บรรทัดนี้สำคัญที่สุด ทำให้พื้นหลังอยู่กับที่เวลา scroll */
+  min-height: 100vh;
+}
+
+.vspace{
+  padding-top: 2rem !important;
+}
+
+.glow {
+  color: white;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+}
+
+.btfont{
+  font-weight:600 !important;
+  font-size:xx-large !important;
+  color: white !important;
+}
+
+.navfont{
+  font-weight:600 !important;
+  font-size:x-large !important;
+  color: white !important;
+}
+
+.navfont:hover{
+  font-weight:600 !important;
+  font-size:x-large !important;
+  color: #FFD204 !important;
+}
+
+.fpb{
+  padding-bottom: 95px !important;
+}
+
+.bgc {
+  background: linear-gradient(180deg, #050130, #F0AFFF) !important;
+  min-height: 3.5rem !important;
+}
+
+.bgcAdmin {
+  background: linear-gradient(180deg, #050130, #F0AFFF) !important;
+}
+
+.product-con{
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill,minmax(180px,1fr)) !important;
+    grid-gap: 1rem !important;
+}
+
+.product-item{
+    box-shadow: 0 0 12px rgba(255,255,255,0.5) !important;
+    outline: 1px solid white;
+    transition: 0.3s;
+}
+
+.product-item:hover {
+    outline: 1px solid orange;
+}
+
+.slick-prev:before, .slick-next:before {
+  display: none !important;
+}
+
+/* The container for the dots */
+.slick-dots li button:before {
+  color: white !important; /* Change this to your desired color (e.g., amber-400) */
+  opacity: 1;
+}
+
+/* The active dot */
+.slick-dots li.slick-active button:before {
+  color: blue !important; /* Change this for the active dot (e.g., red-500) */
+  opacity: 1;
+}
+
+.trigger{
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup_overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup{
+  position: relative;
+  background: linear-gradient(180deg, #F0AFFF, #050130);
+  padding-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
+  max-width: 580px !important;
+  width: 100%;
+  text-align: center;
+  max-height: 96vh !important;
+  overflow-y: auto;   /* Always shows the scrollbar gutter */
+  overflow-x: hidden;   /* Prevents horizontal scrolling */
+}
+
+.close_btn{
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  border: none;
+  background: none;
+  font-size: 28px;
+  font-weight: bolder;
+  cursor: pointer;
+  color: #FFF;
+  z-index: 2000;
+}
+
+.custom-card{
+  border: solid rgba(255,255,255,1) 1px !important;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-left: 35px;
+  margin-right: 35px;
+  padding: 12px;
+}
+
+.swal2-html-container {
+  white-space: pre-line;
+}
+
+.left-align-swal {
+  text-align: left !important;
+}
+
+.FormTable{
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill,minmax(400px,1fr)) !important;
+    grid-gap: 1rem !important;
+}

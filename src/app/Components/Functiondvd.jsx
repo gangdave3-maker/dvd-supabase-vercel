@@ -1,0 +1,187 @@
+import React from 'react'
+
+export async function getCred() {
+    const res = await fetch('/api/get-cred')
+  if (!res.ok) throw new Error('Failed to fetch')
+  return res.json()
+}
+
+export async function getCustomer() {
+    const res = await fetch('/api/get-customer')
+  if (!res.ok) throw new Error('Failed to fetch')
+  return res.json()
+}
+
+export async function eachCustomer(customerID) {
+    const res = await fetch('/api/each-customer',
+      {
+        method: 'POST', // Usually POST for sending data
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(customerID), // Wrap in an object and stringify
+      }
+    )
+  if (!res.ok) throw new Error('Failed to fetch')
+  return res.json()
+}
+
+export async function staffCred() {
+    const res = await fetch('/api/staff-cred')
+  if (!res.ok) throw new Error('Failed to fetch')
+  return res.json()
+}
+
+export async function getFilm() {
+    const res = await fetch('/api/get-film')
+  if (!res.ok) throw new Error('Failed to fetch')
+  return res.json()
+}
+
+export async function MatchedClient(email) {
+    const res = await fetch('/api/email-match',
+      {
+        method: 'POST', // Usually POST for sending data
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(email), // Wrap in an object and stringify
+      }
+    )
+  if (!res.ok){
+    const errorData = await res.json().catch(() => ({}));
+    throw new Error(errorData.message || 'Failed to fetch match');
+  }
+  return res.json()
+}
+
+export async function GetList(customerID) {
+    const res = await fetch('/api/rented-movies',
+      {
+        method: 'POST', // Usually POST for sending data
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(customerID), // Wrap in an object and stringify
+      }
+    )
+  if (!res.ok){
+    const errorData = await res.json().catch(() => ({}));
+    throw new Error(errorData.message || 'Failed to fetch match');
+  }
+  return res.json()
+}
+
+export async function sendEmail(theCustomer) {
+    const res = await fetch('/api/send-email',
+      {
+        method: 'POST', // Usually POST for sending data
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(theCustomer), // Wrap in an object and stringify
+      }
+    )
+
+  if (!res.ok){
+    const errorData = await res.json().catch(() => ({}));
+    throw new Error(errorData.message || 'Failed to fetch match');
+  }
+        
+  return res.json()
+}
+
+export async function updatePassword(cred) {
+    const res = await fetch('/api/update-password',{
+      method:'POST',
+      headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(cred),
+    })
+
+  // 1. Parse the JSON body FIRST to get the data inside
+  const data = await res.json();
+
+  if (!res.ok) throw new Error(data.message||'Failed to fetch')
+  return data
+}
+
+export async function updateList(bulkData) {
+    
+    const res = await fetch('/api/update-rental',{
+      method:'POST',
+      headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(bulkData),
+    })
+
+  // 1. Parse the JSON body FIRST to get the data inside
+  const data = await res.json();
+
+  if (!res.ok) throw new Error(data.message||'Failed to fetch')
+  return data
+}
+
+export async function calculateStock(stock,filmID) {
+
+    const res = await fetch('/api/calc-stock',{
+      method:'POST',
+      headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({stock:stock, filmID:filmID}),
+    })
+
+  // 1. Parse the JSON body FIRST to get the data inside
+  const data = await res.json();
+
+  if (!res.ok) throw new Error(data.message||'Failed to fetch')
+  return data
+}
+
+export async function createClient(customer) {
+    const res = await fetch('/api/insert-client',{
+      method:'POST',
+      headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(customer),
+    })
+
+  // 1. Parse the JSON body FIRST to get the data inside
+  const data = await res.json();
+
+  if (!res.ok) throw new Error(data.message||'Failed to fetch')
+  return data
+}
+
+export function isEmailValid(email) {
+  /*
+  Basic custom email pattern ถ้าเราใช้Functionนี้ในการตรวจสอบ Email เราก็ไม่จำเป็นต้องมาเช็คแล้วว่าตัวอีเมล์มีความยาวตั้งแต่8ตัวอักษรหรือไม่
+  /^คือตัวเริ่ม $/คือตัวจบ จึงหมายถึง [เริ่มด้วย aถึงz หรือAถึงZ หรือ0ถึง9 หรือ. _ % + -] ถัดมา +ที่ตามหลังกรอบ[]คือให้เชื่อมด้วย ตามด้วยคำว่า @ โดยที่@ต้องตามด้วยค่าในกรอบ [a-zA-Z0-9.-] 
+ ซึ่งคือ a-z, A-Z, 0-9, ., - จากนั้นให้เชื่อมด้วย . (+แปลว่าเชื่อม \. คือให้ใช้สัญลักษณ์ .) จากนั้น [a-zA-Z]{2,}หมายถึง หลัง.ให้ตามด้วยค่าในกรอบ[] คือ a-z, A-Z, จำนวน 2 อักขระขึ้นไป({2,})
+  */
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return emailPattern.test(email);
+}
+
+export function isPasswordValid(password) {
+  // Minimum 8 characters, at least one uppercase letter, one lowercase letter, one number, and one special character
+  /*
+  (?=.*[a-z]) requires at least one lowercase letter.
+  (?=.*[A-Z]) requires at least one uppercase letter.
+  (?=.*\d) requires at least one digit.
+  (?=.*[@$!%*?&#+\-_)(]) requires at least one special character from the set @$!%*?&#+-_)(.
+  [A-Za-z\d@$!%*?&#+\-_)(]{8,} defines the allowed characters for the password and enforces a minimum length of 8.
+  */
+  const passwordPattern =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#+\-_)(])[A-Za-z\d@$!%*?&#+\-_)(]{8,}$/;
+  return passwordPattern.test(password);
+}
+
+export function clientRefresh() {
+    // Equivalent to hitting F5 / Cmd+R
+    window.location.reload();
+}

@@ -1,0 +1,36 @@
+{
+  "name": "dvdrent",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.3.0",
+    "@prisma/client": "^7.3.0",
+    "@supabase/supabase-js": "^2.95.3",
+    "bootstrap": "^5.3.8",
+    "js-cookie": "^3.0.5",
+    "lucide-react": "^0.563.0",
+    "next": "16.1.1",
+    "nodemailer": "^8.0.0",
+    "pg": "^8.17.2",
+    "prisma": "^7.3.0",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-slick": "^0.31.0",
+    "slick-carousel": "^1.8.1",
+    "sweetalert2": "^11.26.17",
+    "yarn": "^1.22.22"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "babel-plugin-react-compiler": "1.0.0",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.1",
+    "tailwindcss": "^4"
+  }
+}
