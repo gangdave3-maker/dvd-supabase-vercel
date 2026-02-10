@@ -173,7 +173,7 @@ function Hall() {
               >
               
                 <div className="relative w-full flex items-center justify-center aspect-2/3 overflow-hidden">
-                  <Image src={`${BUCKET_URL}/${item.title}.png`} 
+                  <Image src={encodeURI(`${BUCKET_URL}/${item.title}.png`)} 
                     alt='Live Cover' 
                     fill
                     className='object-cover'
@@ -251,7 +251,7 @@ function Hall() {
                   </button>
                   <div className='h-4'></div>
                   <div className="product-img relative h-180">
-                    <Image src={`${BUCKET_URL}/${selectedFilm.title}.png`} 
+                    <Image src={encodeURI(`${BUCKET_URL}/${selectedFilm.title}.png`)} 
                       alt='DVD Cover' 
                       fill
                       className='object-contain'
