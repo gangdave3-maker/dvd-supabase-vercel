@@ -18,9 +18,13 @@ export default function Home() {
           mt-auto
           flex flex-col gap-4
           sm:flex-row sm:flex-wrap
+          justify-center
+          md:justify-around
+          lg:justify-around
           sm:justify-center
           items-center
           pb-8
+          fpb
         "
       >
         <Link href="/Register" className="btn btn-outline-primary btfont glow w-full sm:w-auto text-center">
