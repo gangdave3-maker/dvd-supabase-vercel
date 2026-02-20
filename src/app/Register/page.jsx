@@ -81,16 +81,17 @@ function Register() {
   }
 
   return (
-    <div className='container bg-white/85 min-h-screen'>
+    <div className='container mx-auto bg-white/85 min-h-screen'>
       <h1 className='underline text-center py-4!'>Register</h1>
       
-        <div className="card bg-transparent border-white">
+        <div className="card bg-transparent border-white overflow-hidden">
           <div className="card-body">
             <div className='FormTable mt-2'>
+
               <div className="flex flex-col md:flex-row md:items-center gap-2">
-                <label htmlFor="FullName" className="md:w-40">Full Name: </label>
+                <label htmlFor="FullName" className="text-nowrap">Full Name: </label>
                 <input 
-                  id='FullName' type="text" className='form-control w-full' value={customer.FullName}
+                  id='FullName' type="text" className="form-control w-9/10! md:w-full box-border min-w-0" value={customer.FullName}
                   onChange={(e)=>{
                     setCustomer(prev=>({
                       ...prev,FullName:e.target.value
@@ -100,9 +101,9 @@ function Register() {
               </div>
 
               <div className="flex flex-col md:flex-row md:items-center gap-2">
-                <label htmlFor="Phone" className="md:w-40">Phone: </label>
+                <label htmlFor="Phone" className="text-nowrap">Phone: </label>
                 <input 
-                  id='Phone' type="text" className='form-control w-full' value={customer.Phone}
+                  id='Phone' type="text" className="form-control w-9/10! md:w-full box-border min-w-0" value={customer.Phone}
                   onChange={(e)=>{
                     setCustomer(prev=>({
                       ...prev,Phone:e.target.value
@@ -112,9 +113,9 @@ function Register() {
               </div>
 
               <div className="flex flex-col md:flex-row md:items-center gap-2">
-                <label htmlFor="Email" className="md:w-40">Email: </label>
+                <label htmlFor="Email" className="text-nowrap">Email: </label>
                 <input 
-                  id='Email' type="email" className='form-control w-full' value={customer.Email}
+                  id='Email' type="email" className="form-control w-9/10! md:w-full box-border min-w-0" value={customer.Email}
                   onChange={(e)=>{
                     setCustomer(prev=>({
                       ...prev,Email:e.target.value
@@ -125,25 +126,23 @@ function Register() {
               </div>
             </div>
 
-            <div className='my-3'>
-              <div className="flex flex-col md:flex-row md:items-center gap-2">
-                <label htmlFor="Address" className="md:w-40">Address: </label>
-                <input 
-                  id='Address' type="text" className='form-control w-full' value={customer.Address}
-                  onChange={(e)=>{
-                    setCustomer(prev=>({
-                      ...prev,Address:e.target.value
-                    }))
-                  }}
-                />
-              </div>
+            <div className="flex flex-col md:flex-row md:items-center gap-2 my-3">
+              <label htmlFor="Address" className="text-nowrap">Address: </label>
+              <input 
+                id='Address' type="text" className="form-control w-full box-border min-w-0" value={customer.Address}
+                onChange={(e)=>{
+                  setCustomer(prev=>({
+                    ...prev,Address:e.target.value
+                  }))
+                }}
+              />
             </div>
-
+            
             <div className='FormTable mb-2'>
               <div className="flex flex-col md:flex-row md:items-center gap-2">
-                <label htmlFor="PostalCode" className="md:w-40">Postal Code: </label>
+                <label htmlFor="PostalCode" className="text-nowrap">Postal Code: </label>
                 <input 
-                  id='PostalCode' type="text" className='form-control w-full' value={customer.PostalCode}
+                  id='PostalCode' type="text" className="form-control w-9/10! md:w-full box-border min-w-0" value={customer.PostalCode}
                   onChange={(e)=>{
                     setCustomer(prev=>({
                       ...prev,PostalCode:e.target.value
@@ -153,9 +152,9 @@ function Register() {
               </div>
 
               <div className="flex flex-col md:flex-row md:items-center gap-2">
-                <label htmlFor="UserName" className="md:w-40">User Name: </label>
+                <label htmlFor="UserName" className="text-nowrap">User Name: </label>
                 <input 
-                  id='UserName' type="text" className='form-control w-full' value={customer.UserName}
+                  id='UserName' type="text" className="form-control w-9/10! md:w-full box-border min-w-0" value={customer.UserName}
                   onChange={(e)=>{
                     setCustomer(prev=>({
                       ...prev,UserName:e.target.value
@@ -165,12 +164,12 @@ function Register() {
               </div>
 
               <div className="flex flex-col md:flex-row md:items-center gap-2">
-                <label htmlFor="Password" className="md:w-40">Password: </label>
-                <div className="relative w-full">
+                <label htmlFor="Password" className="text-nowrap">Password: </label>
+                
                   <input 
                     id='Password' 
                     type={togglePassword?"text":"password"} 
-                    className='form-control w-full pr-10' 
+                    className='form-control w-9/10! md:w-full lg:w-full min-w-0' 
                     value={customer.Password}
                     onChange={(e)=>{
                       setCustomer(prev=>({
@@ -178,8 +177,8 @@ function Register() {
                       }))
                     }}
                   />
-                  <span onClick={()=>swapPassword()} className="absolute right-3 top-1/2 -translate-y-1/2">{togglePassword?<EyeClosed/>:<Eye/>}</span>
-                </div>
+                  <span onClick={()=>swapPassword()}>{togglePassword?<EyeClosed/>:<Eye/>}</span>
+                
               </div>
             </div>
 
