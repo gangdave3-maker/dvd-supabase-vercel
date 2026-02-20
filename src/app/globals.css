@@ -11,6 +11,7 @@
 .welcome {
   min-height: 100vh;
 }
+
 /* Only apply the background if BOTH conditions are met */
 @media (min-width: 1300px) and (min-height: 655px) {
   .welcome {
@@ -64,6 +65,8 @@
 .bgc {
   background: linear-gradient(180deg, #050130, #F0AFFF) !important;
   min-height: 3.5rem !important;
+  /* display: flex !important;
+  align-items: center !important; */
 }
 
 .bgcAdmin {
@@ -111,8 +114,8 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: center;
@@ -120,18 +123,22 @@
   z-index: 1000;
 }
 
-.popup{
+.popup {
   position: relative;
   background: linear-gradient(180deg, #F0AFFF, #050130);
-  padding-top: 20px;
-  border-radius: 10px;
+  padding: 1.5rem 1rem; /* Slightly more top/bottom padding */
+  border-radius: 12px;
   box-shadow: 0 0 12px rgba(255, 255, 255, 0.9);
-  max-width: 580px !important;
-  width: 100%;
+  
+  width: min(92vw, 580px);
+  max-height: 85vh; /* Reduced slightly to ensure it doesn't touch screen edges */
+  
   text-align: center;
-  max-height: 96vh !important;
-  overflow-y: auto;   /* Always shows the scrollbar gutter */
-  overflow-x: hidden;   /* Prevents horizontal scrolling */
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  /* Smooth scrolling for mobile */
+  -webkit-overflow-scrolling: touch; 
 }
 
 .close_btn{

@@ -8,7 +8,7 @@ datasource db {
 
 model customer {
   customer_id  Int       @id @default(autoincrement())
-  email        String?   @db.VarChar(50)
+  email        String?   @unique(map: "unique_email") @db.VarChar(50)
   create_date  DateTime  @default(dbgenerated("('now'::text)::date")) @db.Date
   last_update  DateTime? @default(now()) @db.Timestamp(6)
   full_name    String?
@@ -22,7 +22,7 @@ model customer {
 
 model film {
   film_id          Int                     @id @default(autoincrement())
-  title            String                  @db.VarChar(255)
+  title            String                  @unique(map: "uk_film_title") @db.VarChar(255)
   description      String?
   length           Int?                    @db.SmallInt
   rating           mpaa_rating?            @default(G)
@@ -36,14 +36,14 @@ model film {
 }
 
 model staff {
-  staff_id    Int       @id @default(autoincrement())
-  first_name  String    @db.VarChar(45)
-  last_name   String    @db.VarChar(45)
-  email       String?   @db.VarChar(50)
-  active      Boolean   @default(true)
-  username    String    @db.VarChar(16)
-  password    String?   @db.VarChar(100)
-  last_update DateTime  @default(now()) @db.Timestamp(6)
+  staff_id    Int      @id @default(autoincrement())
+  first_name  String   @db.VarChar(45)
+  last_name   String   @db.VarChar(45)
+  email       String?  @db.VarChar(50)
+  active      Boolean  @default(true)
+  username    String   @db.VarChar(16)
+  password    String?  @db.VarChar(100)
+  last_update DateTime @default(now()) @db.Timestamp(6)
   picture     Bytes?
 }
 

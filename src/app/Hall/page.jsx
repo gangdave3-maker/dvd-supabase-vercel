@@ -136,6 +136,8 @@ function Hall() {
     }
   }
 
+  useEffect(()=>{console.log(window.innerWidth)},[])
+
   if (!mounted) return null // ⬅️ hydration-safe
 
   return (
@@ -151,7 +153,7 @@ function Hall() {
           customerID && <><div className="product-con pt-18!">
 
             <div className="fixed bottom-6 right-6 z-50">
-              {isVisible && (
+              {isVisible&&(
                 <button
                   onClick={goTop}
                   className="btn btn-outline-primary glow text-white font-bold"
@@ -250,7 +252,7 @@ function Hall() {
                     X
                   </button>
                   <div className='h-4'></div>
-                  <div className="product-img relative h-180">
+                  <div className="product-img relative w-full aspect-2/3 max-h-[60vh]">
                     <Image src={encodeURI(`${BUCKET_URL}/${selectedFilm.title}.png`)} 
                       alt='DVD Cover' 
                       fill
@@ -266,7 +268,7 @@ function Hall() {
                     {selectedFilm.description}
                   </div>
                   
-                  <div className="product-price flex justify-between items-center custom-card">
+                  <div className="product-price flex flex-col md:flex-row gap-4 justify-between items-center custom-card p-4">
                     <div className="price-left text-white">
                       2$/Disk/Night
                     </div>
