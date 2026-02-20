@@ -8,7 +8,7 @@
 }
 
 html, body {
-  width: 100%;
+  width: 100vw;
 }
 
 /* Base styles for the welcome class (no background) */
@@ -27,7 +27,7 @@ html, body {
 }
 
 .lay {
-  width: 100%;
+  width: 100vw;
   /* 🔥 mobile-safe viewport height */
   min-height: 100svh;   /* small viewport (iOS safe) */
   min-height: 100dvh;   /* dynamic viewport (modern browsers) */
@@ -37,7 +37,7 @@ html, body {
   background-repeat: no-repeat;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 400px) {
   .lay {
     background-attachment: scroll;
   }
