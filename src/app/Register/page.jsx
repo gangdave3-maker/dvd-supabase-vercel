@@ -88,7 +88,7 @@ function Register() {
           <div className="card-body p-2">
             <div className='FormTable mt-2'>
 
-              <div className="flex flex-col pr-2! md:flex-row md:items-center gap-2">
+              <div className="flex flex-col pr-3! md:flex-row md:items-center gap-2">
                 <label htmlFor="FullName" className="text-nowrap">Full Name: </label>
                 <input 
                   id='FullName' type="text" className="form-control w-41/50! md:w-full box-border min-w-0" value={customer.FullName}
@@ -100,7 +100,7 @@ function Register() {
                 />
               </div>
 
-              <div className="flex flex-col pr-2! md:flex-row md:items-center gap-2">
+              <div className="flex flex-col pr-3! md:flex-row md:items-center gap-2">
                 <label htmlFor="Phone" className="text-nowrap">Phone: </label>
                 <input 
                   id='Phone' type="text" className="form-control w-41/50! md:w-full box-border min-w-0" value={customer.Phone}
@@ -112,7 +112,7 @@ function Register() {
                 />
               </div>
 
-              <div className="flex flex-col pr-2! md:flex-row md:items-center gap-2">
+              <div className="flex flex-col pr-3! md:flex-row md:items-center gap-2">
                 <label htmlFor="Email" className="text-nowrap">Email: </label>
                 <input 
                   id='Email' type="email" className="form-control w-41/50! md:w-full box-border min-w-0" value={customer.Email}
@@ -126,7 +126,7 @@ function Register() {
               </div>
             </div>
 
-            <div className="flex flex-col pr-2! md:flex-row md:items-center gap-2 my-3">
+            <div className="flex flex-col pr-3! md:flex-row md:items-center gap-2 my-3">
               <label htmlFor="Address" className="text-nowrap">Address: </label>
               <input 
                 id='Address' type="text" className="form-control w-full box-border min-w-0" value={customer.Address}
@@ -139,7 +139,7 @@ function Register() {
             </div>
             
             <div className='FormTable mb-2'>
-              <div className="flex flex-col pr-2! md:flex-row md:items-center gap-2">
+              <div className="flex flex-col pr-3! md:flex-row md:items-center gap-2">
                 <label htmlFor="PostalCode" className="text-nowrap">Postal Code: </label>
                 <input 
                   id='PostalCode' type="text" className="form-control w-41/50! md:w-full box-border min-w-0" value={customer.PostalCode}
@@ -151,7 +151,7 @@ function Register() {
                 />
               </div>
 
-              <div className="flex flex-col pr-2! md:flex-row md:items-center gap-2">
+              <div className="flex flex-col pr-3! md:flex-row md:items-center gap-2">
                 <label htmlFor="UserName" className="text-nowrap">User Name: </label>
                 <input 
                   id='UserName' type="text" className="form-control w-41/50! md:w-full box-border min-w-0" value={customer.UserName}
@@ -163,7 +163,7 @@ function Register() {
                 />
               </div>
 
-              <div className="flex flex-col pr-2! md:flex-row md:items-center gap-2">
+              <div className="flex flex-col pr-3! md:flex-row md:items-center gap-2">
                 <label htmlFor="Password" className="text-nowrap">Password: </label>
                 
                   <input 
