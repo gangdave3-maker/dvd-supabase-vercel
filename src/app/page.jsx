@@ -2,15 +2,42 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="welcome flex flex-col">
-      <p className="text-center glow text-5xl font-medium italic tracking-widest vspace">
+    <div className="welcome flex flex-col min-h-screen px-4">
+      {/* Title */}
+      <p className="
+        text-center glow italic tracking-widest
+        text-2xl sm:text-3xl md:text-5xl
+        font-medium
+        my-8
+      ">
         Pichaiyut Sirianantawong's Graduation Project
       </p>
-      <div className="flex! justify-around! items-center fpb mt-auto">
-        <button className="btn btn-outline-primary"><Link href={'/Register'} className="btfont glow">Register</Link></button>
-        <button className="btn btn-outline-warning"><Link href={'/AdminLogin'} className="btfont glow">Admin</Link></button>
-        <span className="glow text-4xl font-medium">Using Next.JS</span>
-        <button className="btn btn-outline-success"><Link href={'/login'} className="btfont glow">Log In</Link></button>
+      {/* Action area */}
+      <div
+        className="
+          mt-auto
+          flex flex-col gap-4
+          sm:flex-row sm:flex-wrap
+          sm:justify-center
+          items-center
+          pb-8
+        "
+      >
+        <Link href="/Register" className="btn btn-outline-primary btfont glow w-full sm:w-auto text-center">
+          Register
+        </Link>
+
+        <Link href="/AdminLogin" className="btn btn-outline-warning btfont glow w-full sm:w-auto text-center">
+          Admin
+        </Link>
+
+        <span className="glow font-medium text-xl sm:text-2xl md:text-4xl text-center">
+          Using Next.js
+        </span>
+
+        <Link href="/login" className="btn btn-outline-success btfont glow w-full sm:w-auto text-center">
+          Log In
+        </Link>
       </div>
     </div>
   );
