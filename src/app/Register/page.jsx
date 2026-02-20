@@ -85,7 +85,7 @@ function Register() {
       <h1 className='underline text-center py-4!'>Register</h1>
       
         <div className="card bg-transparent border-white overflow-hidden">
-          <div className="card-body">
+          <div className="card-body p-2">
             <div className='FormTable mt-2'>
 
               <div className="flex flex-col md:flex-row md:items-center gap-2">
