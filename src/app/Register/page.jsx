@@ -126,10 +126,10 @@ function Register() {
               </div>
             </div>
 
-            <div className="flex flex-col pr-3! md:flex-row md:items-center gap-2 my-3">
+            <div className="flex flex-col md:flex-row md:items-center gap-2 my-3">
               <label htmlFor="Address" className="text-nowrap">Address: </label>
               <input 
-                id='Address' type="text" className="form-control w-full box-border min-w-0" value={customer.Address}
+                id='Address' type="text" className="form-control w-full! box-border min-w-0" value={customer.Address}
                 onChange={(e)=>{
                   setCustomer(prev=>({
                     ...prev,Address:e.target.value
