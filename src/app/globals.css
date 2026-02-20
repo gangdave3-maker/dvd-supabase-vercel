@@ -7,6 +7,10 @@
   font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
 }
 
+html, body {
+  width: 100%;
+}
+
 /* Base styles for the welcome class (no background) */
 .welcome {
   min-height: 100vh;
@@ -23,12 +27,21 @@
 }
 
 .lay {
+  width: 100%;
+  /* 🔥 mobile-safe viewport height */
+  min-height: 100svh;   /* small viewport (iOS safe) */
+  min-height: 100dvh;   /* dynamic viewport (modern browsers) */
+
   background-image: url("https://jhcposnstqhynbmubhyn.supabase.co/storage/v1/object/public/images/SideBanner/SideBanner.jpg");
-  background-size: cover;
-  background-position: center;
+  background-size:cover;
+  background-position:left;
   background-repeat: no-repeat;
-  background-attachment: fixed; /*Code บรรทัดนี้สำคัญที่สุด ทำให้พื้นหลังอยู่กับที่เวลา scroll */
-  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .lay {
+    background-attachment: scroll;
+  }
 }
 
 .vspace{
