@@ -84,15 +84,15 @@ function Detail({params}) {
                     <div className='py-4'>
                         <div className="card bg-transparent border-white">
                             <div className="card-body items-center">
-                                <div className='flex flex-row text-nowrap'>
+                                <div className='flex flex-col md:flex-row'>
                                     <div className='flex mr-8!'>
                                         <label htmlFor="customerID" className='font-bold'>ID: </label>&nbsp;
                                         <div id='customerID'>{client.customer_id}</div>
                                     </div>
 
                                     <div className='flex mr-8!'>
-                                        <label htmlFor="fullName" className='font-bold'>Full Name: </label>&nbsp;
-                                        <div id='fullName'>{client.full_name}</div>
+                                        <label htmlFor="fullName" className='font-bold md:text-nowrap'>Full Name: </label>&nbsp;
+                                        <div id='fullName' className='md:text-nowrap'>{client.full_name}</div>
                                     </div>
 
                                     <div className='flex mr-8!'>
@@ -107,7 +107,7 @@ function Detail({params}) {
 
                                     <div className='flex mr-8!'>
                                         <label htmlFor="phone" className='font-bold'>Email: </label>&nbsp;
-                                        <div id='phone'>{client.email}</div>
+                                        <div id='phone' className='min-w-0'>{client.email}</div>
                                     </div>
                                 </div>
                                 <div className='flex flex-row text-nowrap'>
