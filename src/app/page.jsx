@@ -8,7 +8,7 @@ export default function Home() {
         text-center glow italic tracking-widest
         text-2xl sm:text-3xl md:text-5xl
         font-medium
-        my-8
+        my-8! md:my-3! lg:my-3!
       ">
         Pichaiyut Sirianantawong's Graduation Project
       </p>
