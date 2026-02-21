@@ -83,29 +83,29 @@ function Detail({params}) {
                 <div className='container bg-white/85 px-4 min-h-screen'>
                     <div className='py-4'>
                         <div className="card bg-transparent border-white">
-                            <div className="card-body items-center">
-                                <div className='flex flex-col md:flex-row'>
-                                    <div className='flex mr-8!'>
+                            <div className="card-body items-center align-middle">
+                                <div className='flex flex-col justify-around md:flex-row'>
+                                    <div className='flex'>
                                         <label htmlFor="customerID" className='font-bold'>ID: </label>&nbsp;
                                         <div id='customerID'>{client.customer_id}</div>
                                     </div>
 
-                                    <div className='flex mr-8!'>
+                                    <div className='flex'>
                                         <label htmlFor="fullName" className='font-bold md:text-nowrap'>Full Name: </label>&nbsp;
                                         <div id='fullName' className='md:text-nowrap'>{client.full_name}</div>
                                     </div>
 
-                                    <div className='flex mr-8!'>
+                                    <div className='flex'>
                                         <label htmlFor="address" className='font-bold'>Address: </label>&nbsp;
                                         <div id='address' className='text-wrap'>{client.address_full}, {client.postal_code}</div>
                                     </div>
 
-                                    <div className='flex mr-8!'>
+                                    <div className='flex'>
                                         <label htmlFor="phone" className='font-bold'>Phone: </label>&nbsp;
                                         <div id='phone'>{client.phone}</div>
                                     </div>
 
-                                    <div className='flex mr-8!'>
+                                    <div className='flex'>
                                         <label htmlFor="phone" className='font-bold'>Email: </label>&nbsp;
                                         <div id='phone' className='min-w-0'>{client.email}</div>
                                     </div>
