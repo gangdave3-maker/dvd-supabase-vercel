@@ -131,7 +131,7 @@ function MySlick() {
             <div className="flex! justify-center items-center">
               <Image
                 src={encodeURI(`${BUCKET_URL}/Bonnie Holocaust.png`)}
-                alt="Mockup 6"
+                alt="Mockup 7"
                 width={360}
                 height={540}
                 loading="eager"
@@ -142,7 +142,7 @@ function MySlick() {
             <div className="flex! justify-center items-center">
               <Image
                 src={encodeURI(`${BUCKET_URL}/Bride Intrigue.png`)}
-                alt="Mockup 6"
+                alt="Mockup 8"
                 width={360}
                 height={540}
                 loading="eager"
@@ -153,7 +153,7 @@ function MySlick() {
             <div className="flex! justify-center items-center">
               <Image
                 src={encodeURI(`${BUCKET_URL}/Academy Dinosaur.png`)}
-                alt="Mockup 6"
+                alt="Mockup 9"
                 width={360}
                 height={540}
                 loading="eager"
