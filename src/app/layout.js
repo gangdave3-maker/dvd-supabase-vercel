@@ -11,16 +11,48 @@ const inter = Inter({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://dave-dvd.vercel.app/"), // 🔁 replace with real domain
+
   title: {
-    default: 'Movie Rent | Best Graduation Movie Project | Pichaiyut Sirianantawong',
-    template: '%s | Movie Rent', // Automatically turns "Batman" into "Batman | MovieRent"
+    default:
+      "Movie Rent - Graduation Project | Online Movie Rental System by Pichaiyut Sirianantawong",
+    template: "%s | Movie Rent", // Automatically turns "Batman" into "Batman | MovieRent"
   },
-  description: 'Rent the latest blockbusters and classic films online. Fast, easy, and affordable.',
-  metadataBase: new URL('https://your-domain.com'), // Replace with your real domain
+
+  description:
+    "Movie Rent is a Graduation Project developed by Pichaiyut Sirianantawong. A full-stack online movie rental web application built with Next.js featuring authentication, admin management, and responsive design.",
+
+  keywords: [
+    "Graduation Project",
+    "Movie Rental System",
+    "Next.js Project",
+    "Web Application",
+    "Full Stack Developer",
+    "Pichaiyut Sirianantawong",
+  ],
+
+  authors: [{ name: "Pichaiyut Sirianantawong" }],
+
+  verification: {
+    google: "REk6xtiXewFp7ne3ODKwuVQPDI2aKzVo5VgPU072zaU",
+  },
+
   openGraph: {
-    title: 'Movie Rent Shop',
-    description: 'The best movie rental experience.',
-    type: 'website',
+    title:
+      "Movie Rent - Online Movie Rental System | Graduation Project",
+    description:
+      "A full-stack movie rental web application built with Next.js as a graduation project.",
+    url: "https://dave-dvd.vercel.app/",
+    siteName: "Movie Rent",
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Movie Rent - Graduation Project",
+    description:
+      "Full-stack movie rental system built with Next.js.",
   },
 };
 
