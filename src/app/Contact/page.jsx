@@ -9,7 +9,7 @@ function Contact() {
         <div className='container bg-white/85 min-h-screen'>
             <h1 className='underline text-center py-4!'>About Us</h1>
             <p>
-                {`\u2001`}{`\u2001`}{`\u2001`}My name is Pichaiyut Sirianantawong. I am a student learning Javascript, HTML, 
+                {`\u2001`}{`\u2001`}{`\u2001`}My name is Pichaiyut Sirianantawong. I am a developer using Javascript, HTML, 
                 CSS, REACT, Next.JS and REACT Native. I used to be .Net programmer before. However, I found out that Javascript
                 and its library and framework are more interesting than dot Net. That&apos;s why I switch to learn the subjects.
                 Finally, I need to create web application using Next.JS for my graduation project. If you want to test this web
@@ -18,7 +18,7 @@ function Contact() {
                 users have the same password. It is Congratulations@1.
                 <br/><br/>
                 {`\u2001`}{`\u2001`}{`\u2001`}After finishing my education, I would like to be a freelance to make website both static website
-                and web application. Firstly, I would like to work on Upwork. In fact, I will try to be a freelance on the other
+                and web application. Firstly, I would like to work on Freelancer.com. In fact, I will try to be a freelance on the other
                 platforms too. Thank you for checking out my graduation project. I hope you enjoy testing it.<br/><br/>
                 {`\u2001`}{`\u2001`}{`\u2001`}Best Regards,<br/>
                 {`\u2001`}{`\u2001`}{`\u2001`}Pichaiyut Sirianantawong
