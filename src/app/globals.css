@@ -35,6 +35,7 @@ html, body {
   background-size:cover;
   background-position:left;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 @media (max-width: 400px) {
