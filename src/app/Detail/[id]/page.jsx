@@ -56,7 +56,7 @@ function Detail({params}) {
             }
         }
     }
-//กำลังแก้ไขฟังก์ชั่น
+
     const updatingStock=async(dvdTitle)=>{
         const result = await filterMovie(dvdTitle)
 
