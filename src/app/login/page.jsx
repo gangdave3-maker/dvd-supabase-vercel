@@ -12,6 +12,7 @@ export default function Page() {
     username:'',
     password:'',
   })
+  
   const [togglePassword,setTogglePassword] = useState(false)
   const swapPassword=()=>{
     setTogglePassword(!togglePassword)
@@ -19,18 +20,22 @@ export default function Page() {
 
   useEffect(() => {
     const fetchUser = async () => {
-      const users = await getCred()
-      if (Array.isArray(users)){
-        setAllCred(users)
+      const user = await getCred(cred.username,cred.password)
+      if (Array.isArray(user)){
+        if(user){
+          //เราสร้างแบบ Session Cookies ดีที่สุด ไม่ต้องระบุ expire ทั้งสิ้น จะทำให้เวลาปิดทุกแท็บใน browser จะส่งผลให้ Cookies ถูกลบทิ้งอัตโนมัติ
+          Cookies.set("customerID",user[0]?.customer_id.toString())
+          setAllCred(user)
+        }
       }
     }
     fetchUser()
-  }, [])
+  }, [cred])
 
   useEffect(()=>{
       Swal.fire({
           title: "Credentials",
-          text: `User name -- You can choose user name from JohnDoe1 to JohnDoe11 \n \n Password -- all users have the same password. It is Congratulations@1`,
+          text: `User name -- You can choose user name from JohnDoe1 \n \n Password is $2a$06$BdK0Mt8jVnVOogHEF.nAn.HS4DPd2h7t04/9U80BJxi8rEpSZUa1e`,
           icon: "success",
           customClass: {
                         htmlContainer: 'left-align-swal'
@@ -38,19 +43,7 @@ export default function Page() {
         })
   },[])
 
-  const theCustomer = allCred.find(item=>
-    item.username === cred.username && item.password === cred.password
-  )
-  const isValid = allCred.some(item=>
-    item.username === cred.username && item.password === cred.password
-  )
-
-  useEffect(()=>{
-    if(theCustomer){
-      //เราสร้างแบบ Session Cookies ดีที่สุด ไม่ต้องระบุ expire ทั้งสิ้น จะทำให้เวลาปิดทุกแท็บใน browser จะส่งผลให้ Cookies ถูกลบทิ้งอัตโนมัติ
-      Cookies.set("customerID",theCustomer.customer_id.toString())
-    }
-  },[theCustomer])
+  //useEffect(()=>{console.log(allCred)},[allCred])
 
   return (
     <div className='flex items-center justify-center min-h-screen'>
@@ -113,7 +106,7 @@ export default function Page() {
                       <div className="mt-3 mb-3 text-end">
                         <button 
                         className="btn btn-primary"
-                        disabled={!isValid}
+                        disabled={allCred.length===0}
                         ><Link href={'/Hall'} className="text-white">Log In</Link></button>
                       </div>
                     </td>
