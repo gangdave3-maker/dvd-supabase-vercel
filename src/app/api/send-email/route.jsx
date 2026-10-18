@@ -21,14 +21,14 @@ export async function POST(request) {
         },
       })
 
-  const createPasswordResetRow = await prisma.password_reset.create({
-        data: {
-          customer_id:customerID,
-          token:token,
-          expires_at:expiresAt,
-          used:false
-        },
-      })
+  // const createPasswordResetRow = await prisma.password_reset.create({
+  //       data: {
+  //         customer_id:customerID,
+  //         token:token,
+  //         expires_at:expiresAt,
+  //         used:false
+  //       },
+  //     })
 
   try {
     let transporter = nodeMailer.createTransport({
