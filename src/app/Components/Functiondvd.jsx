@@ -57,7 +57,6 @@ export async function getFilm() {
 }
 
 export async function MatchedClient(email) {
-    console.log(email)
     try{
       const res = await fetch('/api/email-match',
       {
