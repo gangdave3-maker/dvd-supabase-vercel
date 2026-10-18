@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server'
 import crypto from 'crypto'
 const nodeMailer = require("nodemailer");
+import prisma from '@/lib/prisma'
 
 export async function POST(request) {
   // 1. Extract the data from the request body
