@@ -57,7 +57,9 @@ export async function getFilm() {
 }
 
 export async function MatchedClient(email) {
-    const res = await fetch('/api/email-match',
+    console.log(email)
+    try{
+      const res = await fetch('/api/email-match',
       {
         method: 'POST', // Usually POST for sending data
         headers: {
@@ -66,11 +68,15 @@ export async function MatchedClient(email) {
         body: JSON.stringify(email), // Wrap in an object and stringify
       }
     )
-  if (!res.ok){
-    const errorData = await res.json().catch(() => ({}));
-    throw new Error(errorData.message || 'Failed to fetch match');
-  }
-  return res.json()
+    return res.json()
+    }catch(error){
+      console.error(error.message);
+    }
+  // if (!res.ok){
+  //   const errorData = await res.json().catch(() => ({}));
+  //   throw new Error(errorData.message || 'Failed to fetch match');
+  // }
+  
 }
 
 export async function GetList(customerID) {
