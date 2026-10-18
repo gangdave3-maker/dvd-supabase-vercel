@@ -4,11 +4,13 @@ import Link from 'next/link'
 import Swal from 'sweetalert2'
 import { MatchedClient, sendEmail } from '../Components/Functiondvd'
 
+
 function ForgetPassword() {
   const [email,setEmail] = useState("")
   
   const sendingEmail=async()=>{
     const theCustomer = await MatchedClient(email)
+    
     const result = await sendEmail(theCustomer)
     if(result){
       Swal.fire({
