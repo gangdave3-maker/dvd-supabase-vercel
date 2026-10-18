@@ -9,7 +9,7 @@ import Swal from 'sweetalert2'
 export default function Page() {
   const [allCred,setAllCred] = useState([])
   const [cred,setCred] = useState({
-    username:'',
+    email:'',
     password:'',
   })
   
@@ -18,32 +18,36 @@ export default function Page() {
     setTogglePassword(!togglePassword)
   }
 
-  useEffect(() => {
+  
     const fetchUser = async () => {
-      const user = await getCred(cred.username,cred.password)
-      if (Array.isArray(user)){
+      try{
+        const user = await getCred(cred.email,cred.password)
+
         if(user){
           //เราสร้างแบบ Session Cookies ดีที่สุด ไม่ต้องระบุ expire ทั้งสิ้น จะทำให้เวลาปิดทุกแท็บใน browser จะส่งผลให้ Cookies ถูกลบทิ้งอัตโนมัติ
           Cookies.set("customerID",user[0]?.customer_id.toString())
           setAllCred(user)
+          return(true)
         }
+      }catch(error){
+        Swal.fire({
+          title: "Login Failed",
+          text: "Incorrect email or password. error: "+error.message,
+          icon: "error",
+        }).then(() => {return(false)});
       }
     }
-    fetchUser()
-  }, [cred])
-
+  
   useEffect(()=>{
       Swal.fire({
           title: "Credentials",
-          text: `User name -- You can choose user name from JohnDoe1 \n \n Password is $2a$06$BdK0Mt8jVnVOogHEF.nAn.HS4DPd2h7t04/9U80BJxi8rEpSZUa1e`,
+          text: `Demo emails are jessica.hall@sakilacustomer.org or anna.hill@sakilacustomer.org or jean.bell@sakilacustomer.org. \n \n All user passwords are Ken@1234`,
           icon: "success",
           customClass: {
                         htmlContainer: 'left-align-swal'
                        },
         })
   },[])
-
-  //useEffect(()=>{console.log(allCred)},[allCred])
 
   return (
     <div className='flex items-center justify-center min-h-screen'>
@@ -53,16 +57,16 @@ export default function Page() {
                 <tbody>
                   <tr>
                     <th className="mt-1 mb-1">
-                      <div className="mt-3">Username:&nbsp;&nbsp;</div>
+                      <div className="mt-3">Email:&nbsp;&nbsp;</div>
                     </th>
                     <td>
                       <div className="mt-3">
                         <input 
                         className="form-control mt-1 mb-1" 
                         type="text"
-                        value={cred.username}
+                        value={cred.email}
                         onChange={(e)=>{
-                          setCred(prev=>({...prev,username:e.target.value}))
+                          setCred(prev=>({...prev,email:e.target.value}))
                         }}
                         />
                       </div>
@@ -105,9 +109,23 @@ export default function Page() {
                     <td className="mt-1 mb-1">
                       <div className="mt-3 mb-3 text-end">
                         <button 
-                        className="btn btn-primary"
-                        disabled={allCred.length===0}
-                        ><Link href={'/Hall'} className="text-white">Log In</Link></button>
+                        className="btn btn-primary text-white"
+                        onClick={async()=>{
+                          const result = await fetchUser();
+                          
+                          if (result) {
+                            Swal.fire({
+                              title: "Login Successful",
+                              text: `Welcome, ${cred.email}!`,
+                              icon: "success",
+                            }).then(() => {
+                              window.location.href = '/Hall';
+                            }) 
+                          }
+                        }}
+                        >
+                          Log In
+                        </button>
                       </div>
                     </td>
                   </tr>

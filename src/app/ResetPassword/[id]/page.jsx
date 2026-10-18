@@ -6,7 +6,8 @@ import { updatePassword } from '@/app/Components/Functiondvd'
 import { Eye,EyeClosed } from 'lucide-react'
 
 const ResetPassword=({params})=>{
-  const customerID = use(params).id
+  const token = use(params).id
+  
   const [toggleIcon,setToggleIcon]=useState({
                                               iconNew:false,
                                               iconConfirm:false,
@@ -41,7 +42,7 @@ const ResetPassword=({params})=>{
     if(thePass.newPassword===thePass.confirmPassword){
       try{
         const result= await updatePassword({
-                              customerID:customerID,
+                              token:token,
                               password:thePass.newPassword,
                             })
         if(result){

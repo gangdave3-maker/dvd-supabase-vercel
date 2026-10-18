@@ -1,16 +1,19 @@
 import { NextResponse } from 'next/server'
 import prisma from '@/lib/prisma'
+import bcrypt from 'bcryptjs'
 
 export async function POST(request) {
     const data = await request.json()
+    const hashedPassword = await bcrypt.hash(data.password,10)
+
     try{
       const currentDateTime = new Date()
 
       const updatePassword = await prisma.customer.update({
-        where: { customer_id: parseInt(data.customerID) },
+        where: { token: data.token },
         data: {
           last_update:currentDateTime,
-          password:data.password,
+          password:hashedPassword,
         },
       })
       

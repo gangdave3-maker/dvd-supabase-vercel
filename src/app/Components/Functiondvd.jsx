@@ -1,9 +1,19 @@
 import React from 'react'
 
-export async function getCred() {
-    const res = await fetch('/api/get-cred')
-  if (!res.ok) throw new Error('Failed to fetch')
-  return res.json()
+export async function getCred(email,password) {
+  const res = await fetch('/api/get-cred',{
+      method:'POST',
+      headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({email:email, password:password}),
+    })
+
+  // 1. Parse the JSON body FIRST to get the data inside
+  const data = await res.json();
+
+  if (!res.ok) throw new Error(data.error||'Failed to fetch')
+  return data
 }
 
 export async function getCustomer() {
@@ -26,8 +36,16 @@ export async function eachCustomer(customerID) {
   return res.json()
 }
 
-export async function staffCred() {
-    const res = await fetch('/api/staff-cred')
+export async function staffCred(username,password) {
+
+    const res = await fetch('/api/staff-cred',{
+                  method:'POST',
+                  headers: {
+                          'Content-Type': 'application/json',
+                           },
+                  body: JSON.stringify({username:username, password:password}),
+                })
+                
   if (!res.ok) throw new Error('Failed to fetch')
   return res.json()
 }

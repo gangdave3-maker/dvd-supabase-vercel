@@ -18,6 +18,7 @@ model customer {
   phone        String?   @db.VarChar(50)
   postal_code  String?   @db.VarChar(20)
   movie_list   Json      @default("[]")
+  token        String?   @unique(map: "customer_token_unique")
 }
 
 model film {
@@ -45,6 +46,14 @@ model staff {
   password    String?  @db.VarChar(100)
   last_update DateTime @default(now()) @db.Timestamp(6)
   picture     Bytes?
+}
+
+model password_reset {
+  id          Int      @id @default(autoincrement())
+  customer_id Int
+  token       String   @unique
+  expires_at  DateTime
+  used        Boolean  @default(false)
 }
 
 enum mpaa_rating {
